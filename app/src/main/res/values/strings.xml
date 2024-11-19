@@ -1,3 +1,5 @@
 <resources>
+    <string name="navigation_drawer_open">Abrir Menú</string>
+    <string name="navigation_drawer_close">Cerrar Menú</string>
     <string name="app_name">FeliHouse</string>
 </resources>
