@@ -7,7 +7,7 @@
     <string name="logo">Logo de la app</string>
     <string name="bienvenida">¡Bienvenido!</string>
     <string name="luces">Control de luces</string>
-    <string name="cuarto_principal">Principal</string>
+    <string name="cuarto_principal">Cuarto Principal</string>
     <string name="cuarto_secundario">Secundario 1</string>
     <string name="cuarto_secundario2">Secundario 2</string>
     <string name="sala">Sala</string>
@@ -16,6 +16,9 @@
     <string name="baño">Baño</string>
     <string name="cochera">Cochera</string>
     <string name="encendido_apagado">Todo Encendido/Apagado</string>
+
+    <string name="encender_todo">Encender Todo</string>
+    <string name="apagar_todo">Apagar Todo</string>
 
     <string name="eventos">Registro de Eventos</string>
 </resources>
