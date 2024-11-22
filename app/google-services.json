@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "165817586633",
+    "project_id": "felihouse-2f74d",
+    "storage_bucket": "felihouse-2f74d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165817586633:android:3fd2c56a67a69792bc0e18",
+        "android_client_info": {
+          "package_name": "com.upao.felihouse"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuPGFlrBV6vmC94b-6uslWGN7m6nLvvhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

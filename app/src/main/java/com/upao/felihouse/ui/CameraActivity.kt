@@ -1,15 +1,16 @@
 package com.upao.felihouse.ui
 
+import android.os.Build
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.upao.felihouse.R
 
-class CameraActivity : AppCompatActivity() {
+class CameraActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_camera)
-
-        // No conviertas vistas al tipo incorrecto. Si no necesitas este bloque, elimínalo.
-        val rootView = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.root_layout)
+        layoutInflater.inflate(R.layout.activity_camera, findViewById(R.id.container))
+        // Cambiar el color del status bar dinámicamente
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = getColor(R.color.melon) // Cambia R.color.dashboard_color
+        }
     }
 }

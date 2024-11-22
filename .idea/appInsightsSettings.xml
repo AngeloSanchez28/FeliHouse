@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.upao.felihouse" />
+                  <option name="mobileSdkAppId" value="1:165817586633:android:3fd2c56a67a69792bc0e18" />
+                  <option name="projectId" value="felihouse-2f74d" />
+                  <option name="projectNumber" value="165817586633" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

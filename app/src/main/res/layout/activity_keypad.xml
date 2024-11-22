@@ -1,0 +1,175 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/melon">
+
+    <!-- Título -->
+
+    <!-- Pantalla para mostrar la clave ingresada -->
+    <TextView
+        android:id="@+id/keypad_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Teclado"
+        android:textColor="@color/negro"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Teclado numérico -->
+
+    <TextView
+        android:id="@+id/display_key"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="Introduce la contraseña"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/keypad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/keypad_title" />
+
+    <GridLayout
+        android:id="@+id/keypad"
+        android:layout_width="367dp"
+        android:layout_height="340dp"
+        android:layout_margin="8dp"
+        android:columnCount="3"
+        android:rowCount="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/display_key">
+
+        <!-- Botones del teclado numérico -->
+        <Button
+            android:id="@+id/button_1"
+            android:layout_width="105dp"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:backgroundTint="@color/verde"
+            android:text="1"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/button_2"
+            android:layout_width="105dp"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:backgroundTint="@color/verde"
+            android:text="2"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/button_3"
+            android:layout_width="105dp"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:backgroundTint="@color/verde"
+            android:text="3"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/button_4"
+            android:layout_width="105dp"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:backgroundTint="@color/verde"
+            android:text="4"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/button_5"
+            android:layout_width="105dp"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:backgroundTint="@color/verde"
+            android:text="5"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/button_6"
+            android:layout_width="105dp"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:backgroundTint="@color/verde"
+            android:text="6"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/button_7"
+            android:layout_width="105dp"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:backgroundTint="@color/verde"
+            android:text="7"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/button_8"
+            android:layout_width="105dp"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:backgroundTint="@color/verde"
+            android:text="8"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/button_9"
+            android:layout_width="105dp"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:backgroundTint="@color/verde"
+            android:text="9"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/button_clear"
+            android:layout_width="105dp"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:backgroundTint="@color/rojo"
+            android:text="*"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/button_0"
+            android:layout_width="105dp"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:backgroundTint="@color/verde"
+            android:text="0"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/button_enter"
+            android:layout_width="105dp"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:textSize="20sp"
+            android:backgroundTint="@color/verde"
+            android:text="#"
+            app:layout_columnWeight="1" />
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

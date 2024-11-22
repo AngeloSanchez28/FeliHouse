@@ -1,5 +1,21 @@
 <resources>
-    <string name="navigation_drawer_open">Abrir Menú</string>
-    <string name="navigation_drawer_close">Cerrar Menú</string>
+
     <string name="app_name">FeliHouse</string>
+    <string name="camara">Cámara en vivo</string>
+
+
+    <string name="logo">Logo de la app</string>
+    <string name="bienvenida">¡Bienvenido!</string>
+    <string name="luces">Control de luces</string>
+    <string name="cuarto_principal">Principal</string>
+    <string name="cuarto_secundario">Secundario 1</string>
+    <string name="cuarto_secundario2">Secundario 2</string>
+    <string name="sala">Sala</string>
+    <string name="pasadizo">Pasadizo</string>
+    <string name="exterior">Exterior</string>
+    <string name="baño">Baño</string>
+    <string name="cochera">Cochera</string>
+    <string name="encendido_apagado">Todo Encendido/Apagado</string>
+
+    <string name="eventos">Registro de Eventos</string>
 </resources>
