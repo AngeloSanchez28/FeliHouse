@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="14dp"
     android:background="@color/melon"
     android:fillViewport="true">
 
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bienvenida"
-            android:textColor="#3D405B"
+            android:textColor="@color/negro"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_gravity="center"
@@ -40,284 +40,341 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="@string/luces"
-            android:textColor="#3D405B"
+            android:textColor="@color/negro"
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <!-- GridLayout con dos columnas -->
         <androidx.gridlayout.widget.GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:columnCount="2"
-            android:padding="8dp">
+            app:rowCount="5">
 
-            <!-- Switch Cuarto Principal -->
+            <!-- Elementos en el GridLayout -->
+
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="57dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:background="@drawable/switch_background"
-                android:elevation="4dp"
-                android:orientation="horizontal"
-                android:padding="16dp"
+                android:orientation="vertical"
                 app:layout_columnWeight="1">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/cama" />
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/cama"
+                    android:layout_marginTop="5dp"/>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/cuarto_principal"
                     android:textColor="@color/blanco"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_master_room"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:thumbTint="@color/blanco"
-                    android:trackTint="@color/verde" />
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
 
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie_switch_master_room"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    app:lottie_rawRes="@raw/animation_switch"
+                    app:lottie_autoPlay="false"
+                    app:lottie_loop="false" />
             </LinearLayout>
 
-            <!-- Repite esto para los demás switches -->
-
-            <!-- Switch para secundaria 1 -->
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="57dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:background="@drawable/switch_background"
-                android:elevation="4dp"
-                android:orientation="horizontal"
-                android:padding="16dp"
+                android:orientation="vertical"
                 app:layout_columnWeight="1">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/cama" />
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/cama"
+                    android:layout_marginTop="5dp"/>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/cuarto_secundario"
                     android:textColor="@color/blanco"
-                    android:textSize="8sp"
-                    android:textStyle="bold" />
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_secondary_room"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:thumbTint="@color/blanco"
-                    android:trackTint="@color/verde" />
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="57dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:background="@drawable/switch_background"
-                android:elevation="4dp"
-                android:orientation="horizontal"
-                android:padding="16dp"
+                android:orientation="vertical"
                 app:layout_columnWeight="1">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/cama" />
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/cama"
+                    android:layout_marginTop="5dp"/>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/cuarto_secundario2"
                     android:textColor="@color/blanco"
-                    android:textSize="8sp"
-                    android:textStyle="bold" />
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_secondary_room2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:thumbTint="@color/blanco"
-                    android:trackTint="@color/verde" />
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
-            <!-- Switch para Sala -->
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="57dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:background="@drawable/switch_background"
-                android:elevation="4dp"
-                android:orientation="horizontal"
-                android:padding="16dp"
+                android:orientation="vertical"
                 app:layout_columnWeight="1">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/sala" />
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/sala"
+                    android:layout_marginTop="5dp"/>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/sala"
                     android:textColor="@color/blanco"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_living_room"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:thumbTint="@color/blanco"
-                    android:trackTint="@color/verde" />
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="57dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:background="@drawable/switch_background"
-                android:elevation="4dp"
-                android:orientation="horizontal"
-                android:padding="16dp"
+                android:orientation="vertical"
                 app:layout_columnWeight="1">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/pasillo" />
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/cocina"
+                    android:layout_marginTop="5dp"/>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:text="@string/cocina"
+                    android:textColor="@color/blanco"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/cocina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/blanco"
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/switch_background"
+                android:orientation="vertical"
+                app:layout_columnWeight="1">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/pasillo"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/pasadizo"
                     android:textColor="@color/blanco"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_hallway"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:thumbTint="@color/blanco"
-                    android:trackTint="@color/verde" />
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="57dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:background="@drawable/switch_background"
-                android:elevation="4dp"
-                android:orientation="horizontal"
-                android:padding="16dp"
+                android:orientation="vertical"
                 app:layout_columnWeight="1">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/garden" />
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/garden"
+                    android:layout_marginTop="5dp"/>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/exterior"
                     android:textColor="@color/blanco"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_exterior"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:thumbTint="@color/blanco"
-                    android:trackTint="@color/verde" />
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="57dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:background="@drawable/switch_background"
-                android:elevation="4dp"
-                android:orientation="horizontal"
-                android:padding="16dp"
+                android:orientation="vertical"
                 app:layout_columnWeight="1">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/bano" />
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/bano"
+                    android:layout_marginTop="5dp"/>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/baño"
+                    android:text="@string/bano"
                     android:textColor="@color/blanco"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_bathroom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:thumbTint="@color/blanco"
-                    android:trackTint="@color/verde" />
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="57dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:background="@drawable/switch_background"
-                android:elevation="4dp"
-                android:orientation="horizontal"
-                android:padding="16dp"
+                android:orientation="vertical"
                 app:layout_columnWeight="1">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/garage" />
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/garage"
+                    android:layout_marginTop="5dp"/>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/cochera"
                     android:textColor="@color/blanco"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_garage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:thumbTint="@color/blanco"
-                    android:trackTint="@color/verde" />
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
         </androidx.gridlayout.widget.GridLayout>
@@ -330,6 +387,6 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/rojo"
             android:text="@string/encendido_apagado"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/blanco" />
     </LinearLayout>
 </ScrollView>

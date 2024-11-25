@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.androidx.gridlayout)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
+    implementation ("com.airbnb.android:lottie:5.2.0")
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
     implementation ("org.java-websocket:Java-WebSocket:1.5.2")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
