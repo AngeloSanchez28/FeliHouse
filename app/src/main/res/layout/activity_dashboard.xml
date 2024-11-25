@@ -1,0 +1,392 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="14dp"
+    android:background="@color/melon"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Logo e Introducción -->
+        <ImageView
+            android:id="@+id/app_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logosinfondo"
+            android:contentDescription="@string/logo"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/greeting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bienvenida"
+            android:textColor="@color/negro"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Sección: Control de luces -->
+        <TextView
+            android:id="@+id/lights_section_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/luces"
+            android:textColor="@color/negro"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- GridLayout con dos columnas -->
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:columnCount="2"
+            app:rowCount="5">
+
+            <!-- Elementos en el GridLayout -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/switch_background"
+                android:orientation="vertical"
+                app:layout_columnWeight="1">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/cama"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cuarto_principal"
+                    android:textColor="@color/blanco"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_master_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/blanco"
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie_switch_master_room"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    app:lottie_rawRes="@raw/animation_switch"
+                    app:lottie_autoPlay="false"
+                    app:lottie_loop="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/switch_background"
+                android:orientation="vertical"
+                app:layout_columnWeight="1">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/cama"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cuarto_secundario"
+                    android:textColor="@color/blanco"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_secondary_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/blanco"
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/switch_background"
+                android:orientation="vertical"
+                app:layout_columnWeight="1">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/cama"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cuarto_secundario2"
+                    android:textColor="@color/blanco"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_secondary_room2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/blanco"
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/switch_background"
+                android:orientation="vertical"
+                app:layout_columnWeight="1">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/sala"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sala"
+                    android:textColor="@color/blanco"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_living_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/blanco"
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/switch_background"
+                android:orientation="vertical"
+                app:layout_columnWeight="1">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/cocina"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cocina"
+                    android:textColor="@color/blanco"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/cocina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/blanco"
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/switch_background"
+                android:orientation="vertical"
+                app:layout_columnWeight="1">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/pasillo"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pasadizo"
+                    android:textColor="@color/blanco"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_hallway"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/blanco"
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/switch_background"
+                android:orientation="vertical"
+                app:layout_columnWeight="1">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/garden"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exterior"
+                    android:textColor="@color/blanco"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_exterior"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/blanco"
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/switch_background"
+                android:orientation="vertical"
+                app:layout_columnWeight="1">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/bano"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bano"
+                    android:textColor="@color/blanco"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_bathroom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/blanco"
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/switch_background"
+                android:orientation="vertical"
+                app:layout_columnWeight="1">
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/garage"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cochera"
+                    android:textColor="@color/blanco"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_garage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/blanco"
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <!-- Botón para Encender/Apagar -->
+        <Button
+            android:id="@+id/button_all_lights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/rojo"
+            android:text="@string/encendido_apagado"
+            android:textColor="@color/blanco" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/casa"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_camera"
+        android:icon="@drawable/cam"
+        android:title="Cámara" />
+    <item
+        android:id="@+id/nav_event_log"
+        android:icon="@drawable/events"
+        android:title="Eventos" />
+    <item
+        android:id="@+id/nav_keypad"
+        android:icon="@drawable/puerta"
+        android:title="Keypad" />
+
+</menu>

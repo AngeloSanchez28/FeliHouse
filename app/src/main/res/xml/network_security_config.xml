@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">1ccb-132-184-131-183.ngrok-free.app</domain>
+    </domain-config>
+</network-security-config>
