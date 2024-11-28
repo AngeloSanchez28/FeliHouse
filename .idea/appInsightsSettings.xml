@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.upao.felihouse" />
-                  <option name="mobileSdkAppId" value="1:165817586633:android:3fd2c56a67a69792bc0e18" />
-                  <option name="projectId" value="felihouse-2f74d" />
-                  <option name="projectNumber" value="165817586633" />
+                  <option name="mobileSdkAppId" value="1:86212388546:android:ee4cb4b2358c17906d7d5b" />
+                  <option name="projectId" value="felihouse" />
+                  <option name="projectNumber" value="86212388546" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

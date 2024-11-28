@@ -87,14 +87,6 @@
                     android:trackTint="@color/verde"
                     android:layout_gravity="center_horizontal"/>
 
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/lottie_switch_master_room"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center_horizontal"
-                    app:lottie_rawRes="@raw/animation_switch"
-                    app:lottie_autoPlay="false"
-                    app:lottie_loop="false" />
             </LinearLayout>
 
             <LinearLayout
@@ -377,16 +369,41 @@
                     android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
-        </androidx.gridlayout.widget.GridLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/switch_background2"
+                android:orientation="vertical"
+                app:layout_columnWeight="1">
 
-        <!-- Botón para Encender/Apagar -->
-        <Button
-            android:id="@+id/button_all_lights"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/rojo"
-            android:text="@string/encendido_apagado"
-            android:textColor="@color/blanco" />
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/casa"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/encendido_apagado"
+                    android:textColor="@color/blanco"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_all_lights"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/blanco"
+                    android:trackTint="@color/verde"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+        </androidx.gridlayout.widget.GridLayout>
     </LinearLayout>
 </ScrollView>

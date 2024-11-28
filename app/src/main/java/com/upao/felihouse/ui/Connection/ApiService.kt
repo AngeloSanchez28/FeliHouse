@@ -8,7 +8,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 
 object ApiService {
 
-    private const val BASE_URL = "https://1ccb-132-184-131-183.ngrok-free.app" // Cambia por tu IP o URL de ngrok
+    private const val BASE_URL = "https://ea00-132-184-131-183.ngrok-free.app" // Cambia por tu IP o URL de ngrok
 
     private val retrofit: Retrofit by lazy {
         val logging = HttpLoggingInterceptor().apply {

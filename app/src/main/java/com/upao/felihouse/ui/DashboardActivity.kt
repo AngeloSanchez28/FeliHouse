@@ -36,9 +36,6 @@ class DashboardActivity : BaseActivity() {
 
         // Configura los switches
         setupSwitches()
-
-        // Configura el botón de todas las luces
-        setupAllLightsButton()
     }
 
     private fun setupSwitches() {
@@ -51,7 +48,10 @@ class DashboardActivity : BaseActivity() {
         val switchBathroom = findViewById<SwitchCompat>(R.id.switch_bathroom)
         val switchGarage = findViewById<SwitchCompat>(R.id.switch_garage)
         val switchCocina = findViewById<SwitchCompat>(R.id.cocina)
+        val switchAllLights = findViewById<SwitchCompat>(R.id.switch_all_lights) // Switch para todos los LEDs
 
+        // Configurar el switch de todos los LEDs
+        configureAllLightsSwitch(switchAllLights)
 
         configureSwitch(switchMasterRoom, "cuartoprincipalon", "cuartoprincipaloff")
         configureSwitch(switchSecondaryRoom, "cuarto1on", "cuarto1off")
@@ -71,50 +71,6 @@ class DashboardActivity : BaseActivity() {
             toggleLight(endpoint, isChecked)
         }
     }
-
-    private fun toggleLight(endpoint: String, isOn: Boolean) {
-        if (esAccionGlobal) return // Evita acciones durante una acción global
-
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val response = when (endpoint) {
-                    "cuartoprincipalon" -> ApiService.apiEndpoint.encenderCuartoPrincipal()
-                    "cuartoprincipaloff" -> ApiService.apiEndpoint.apagarCuartoPrincipal()
-                    "cuarto1on" -> ApiService.apiEndpoint.encenderCuarto1()
-                    "cuarto1off" -> ApiService.apiEndpoint.apagarCuarto1()
-                    "cuarto2on" -> ApiService.apiEndpoint.encenderCuarto2()
-                    "cuarto2off" -> ApiService.apiEndpoint.apagarCuarto2()
-                    "cocinaon" -> ApiService.apiEndpoint.encenderCocina()
-                    "cocinaoff" -> ApiService.apiEndpoint.apagarCocina()
-                    "salaon" -> ApiService.apiEndpoint.encenderSala()
-                    "salaoff" -> ApiService.apiEndpoint.apagarSala()
-                    "pasadisoon" -> ApiService.apiEndpoint.encenderPasadiso()
-                    "pasadisooff" -> ApiService.apiEndpoint.apagarPasadiso()
-                    "jardinon" -> ApiService.apiEndpoint.encenderJardin()
-                    "jardinoff" -> ApiService.apiEndpoint.apagarJardin()
-                    "banoon" -> ApiService.apiEndpoint.encenderBano()
-                    "banooff" -> ApiService.apiEndpoint.apagarBano()
-                    "cocheraon" -> ApiService.apiEndpoint.encenderCochera()
-                    "cocheraoff" -> ApiService.apiEndpoint.apagarCochera()
-                    else -> null
-                }
-
-                if (response != null && response.isSuccessful) {
-                    guardarEvento(endpoint, isOn) // Registrar solo eventos individuales
-                    verificarEstadoGlobal() // Actualizar estado global
-                }
-            } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    Snackbar.make(
-                        findViewById(R.id.container),
-                        "Error: ${e.message}",
-                        Snackbar.LENGTH_SHORT
-                    ).show()
-                }
-            }
-        }
-    }
-
 
     private fun getEstadosDeCuartos() {
         isInitializing = true
@@ -147,37 +103,22 @@ class DashboardActivity : BaseActivity() {
             }
     }
 
-    private fun verificarEstadoGlobal() {
-        Firebase.firestore.collection("cuartos")
+
+    private fun configureAllLightsSwitch(switch: SwitchCompat) {
+        // Obtener el estado global al cargar la interfaz
+        Firebase.firestore.collection("cuartos").document("global")
             .get()
-            .addOnSuccessListener { documents ->
-                var allOn = true
-                for (document in documents) {
-                    if (document.id != "global") { // Ignorar el estado global
-                        val estado = document.getString("estado") ?: "Apagado"
-                        if (estado == "Apagado") {
-                            allOn = false
-                            break
-                        }
-                    }
-                }
+            .addOnSuccessListener { document ->
+                val encenderTodo = document.getBoolean("encenderTodo") ?: false
+                switch.isChecked = encenderTodo // Actualiza el switch con el estado global
+            }
 
-                // Actualiza el estado global
-                Firebase.firestore.collection("cuartos").document("global")
-                    .set(mapOf("encenderTodo" to allOn))
-                    .addOnSuccessListener {
-                        Log.d("Firestore", "Estado global actualizado: encenderTodo = $allOn")
-                    }
-                    .addOnFailureListener { e ->
-                        Log.e("Firestore", "Error al actualizar estado global: ${e.message}", e)
-                    }
-            }
-            .addOnFailureListener { e ->
-                Log.e("Firestore", "Error al verificar estado global: ${e.message}", e)
-            }
+        switch.setOnCheckedChangeListener { _, isChecked ->
+            if (esAccionGlobal) return@setOnCheckedChangeListener // Evita acciones durante una acción global
+            val endpoint = if (isChecked) "allon" else "alloff"
+            toggleAllLights(endpoint)
+        }
     }
-
-
 
     private fun guardarEvento(endpoint: String, isOn: Boolean) {
         // Obtener la hora actual ajustada a la zona horaria de Perú
@@ -227,25 +168,53 @@ class DashboardActivity : BaseActivity() {
             }
     }
 
+    private fun toggleLight(endpoint: String, isChecked: Boolean) {
+        // Aquí debes definir cómo interactuar con la API para encender o apagar una luz
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = when (endpoint) {
+                    "cuartoprincipalon" -> ApiService.apiEndpoint.encenderCuartoPrincipal()
+                    "cuartoprincipaloff" -> ApiService.apiEndpoint.apagarCuartoPrincipal()
+                    "cuarto1on" -> ApiService.apiEndpoint.encenderCuarto1()
+                    "cuarto1off" -> ApiService.apiEndpoint.apagarCuarto1()
+                    "cuarto2on" -> ApiService.apiEndpoint.encenderCuarto2()
+                    "cuarto2off" -> ApiService.apiEndpoint.apagarCuarto2()
+                    "cocinaon" -> ApiService.apiEndpoint.encenderCocina()
+                    "cocinaoff" -> ApiService.apiEndpoint.apagarCocina()
+                    "salaon" -> ApiService.apiEndpoint.encenderSala()
+                    "salaoff" -> ApiService.apiEndpoint.apagarSala()
+                    "pasadisoon" -> ApiService.apiEndpoint.encenderPasadiso()
+                    "pasadisooff" -> ApiService.apiEndpoint.apagarPasadiso()
+                    "jardinon" -> ApiService.apiEndpoint.encenderJardin()
+                    "jardinoff" -> ApiService.apiEndpoint.apagarJardin()
+                    "banoon" -> ApiService.apiEndpoint.encenderBano()
+                    "banooff" -> ApiService.apiEndpoint.apagarBano()
+                    "cocheraon" -> ApiService.apiEndpoint.encenderCochera()
+                    "cocheraoff" -> ApiService.apiEndpoint.apagarCochera()
+                    else -> null
+                }
 
-    private fun setupAllLightsButton() {
-        val buttonAllLights = findViewById<Button>(R.id.button_all_lights)
-
-        // Obtener el estado global al cargar la interfaz
-        Firebase.firestore.collection("cuartos").document("global")
-            .get()
-            .addOnSuccessListener { document ->
-                val encenderTodo = document.getBoolean("encenderTodo") ?: false
-                buttonAllLights.text = if (encenderTodo) getString(R.string.apagar_todo) else getString(R.string.encender_todo)
+                if (response != null && response.isSuccessful) {
+                    // Si la solicitud fue exitosa, puedes hacer algo con la respuesta, por ejemplo:
+                    withContext(Dispatchers.Main) {
+                        // Actualizar la UI si es necesario
+                        Log.d("DashboardActivity", "Luz cambiada correctamente")
+                    }
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Snackbar.make(
+                        findViewById(R.id.container),
+                        "Error: ${e.message}",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
             }
-
-        buttonAllLights.setOnClickListener {
-            val endpoint = if (buttonAllLights.text == getString(R.string.apagar_todo)) "alloff" else "allon"
-            toggleAllLights(endpoint, buttonAllLights)
         }
     }
 
-    private fun toggleAllLights(endpoint: String, button: Button) {
+
+    private fun toggleAllLights(endpoint: String) {
         esAccionGlobal = true // Inicia la acción global
         CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -266,47 +235,22 @@ class DashboardActivity : BaseActivity() {
                             findViewById<SwitchCompat>(R.id.switch_secondary_room),
                             findViewById<SwitchCompat>(R.id.switch_secondary_room2),
                             findViewById<SwitchCompat>(R.id.switch_living_room),
-                            findViewById<SwitchCompat>(R.id.cocina),
                             findViewById<SwitchCompat>(R.id.switch_hallway),
                             findViewById<SwitchCompat>(R.id.switch_exterior),
                             findViewById<SwitchCompat>(R.id.switch_bathroom),
-                            findViewById<SwitchCompat>(R.id.switch_garage)
+                            findViewById<SwitchCompat>(R.id.switch_garage),
+                            findViewById<SwitchCompat>(R.id.cocina)
                         )
                         switches.forEach { it.isChecked = isOn }
                     }
-
-                    // Actualizar Firestore con el estado global y registrar un único evento
-                    val batch = Firebase.firestore.batch()
-                    val cuartos = listOf(
-                        "Cuarto Principal",
-                        "Cuarto Secundario 1",
-                        "Cuarto Secundario 2",
-                        "Sala",
-                        "Cocina",
-                        "Pasadizo",
-                        "Jardín",
-                        "Baño",
-                        "Cochera"
-                    )
-                    cuartos.forEach { cuarto ->
-                        val docRef = Firebase.firestore.collection("cuartos").document(cuarto)
-                        batch.set(docRef, mapOf("estado" to estado))
-                    }
-                    val globalDoc = Firebase.firestore.collection("cuartos").document("global")
-                    batch.set(globalDoc, mapOf("encenderTodo" to isOn))
-                    batch.commit()
-
-                    val evento = mapOf(
-                        "timestamp" to Calendar.getInstance(TimeZone.getTimeZone("America/Lima")).timeInMillis,
-                        "estado" to estado,
-                        "tipo" to "Todos los cuartos"
-                    )
-                    Firebase.firestore.collection("eventos").add(evento)
-
-                    // Actualizar el texto del botón
-                    withContext(Dispatchers.Main) {
-                        button.text = if (isOn) getString(R.string.apagar_todo) else getString(R.string.encender_todo)
-                    }
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Snackbar.make(
+                        findViewById(R.id.container),
+                        "Error: ${e.message}",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                 }
             } finally {
                 esAccionGlobal = false // Finaliza la acción global

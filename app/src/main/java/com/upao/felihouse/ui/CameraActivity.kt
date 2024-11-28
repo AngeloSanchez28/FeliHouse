@@ -16,8 +16,8 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class CameraActivity : BaseActivity() {
-    private val flashOnUrl = "https://f1728d7a07a2ea9a76f3896f5487e93b.serveo.net/flash/on" // Reemplaza <IP_DE_TU_ESP32> con la IP de tu ESP32-CAM
-    private val flashOffUrl = "https://f1728d7a07a2ea9a76f3896f5487e93b.serveo.net/flash/off"
+    private val flashOnUrl = "https://d9c8-190-108-95-235.ngrok-free.app/flash/on" // Reemplaza <IP_DE_TU_ESP32> con la IP de tu ESP32-CAM
+    private val flashOffUrl = "https://d9c8-190-108-95-235.ngrok-free.app/flash/off"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,16 +89,16 @@ class CameraActivity : BaseActivity() {
             cacheMode = WebSettings.LOAD_NO_CACHE // Desactiva el almacenamiento en caché
         }
 
-        webView.isHorizontalScrollBarEnabled = false // Deshabilita el scroll horizontal
+        webView.isHorizontalScrollBarEnabled = true // Deshabilita el scroll horizontal
         webView.isVerticalScrollBarEnabled = false // Deshabilita el scroll vertical
 
-        webView.setOnTouchListener { _, _ -> true } // Desactiva la interacción de toque
+        webView.setOnTouchListener { _, _ -> false } // Desactiva la interacción de toque
 
         // Asigna un WebViewClient para que cargue el contenido dentro del WebView
         webView.webViewClient = WebViewClient()
 
         // Carga la URL de la cámara
-        val cameraUrl = "https://f1728d7a07a2ea9a76f3896f5487e93b.serveo.net/felicam/1" // Reemplaza <IP_DE_TU_ESP32> con la IP de tu ESP32-CAM
+        val cameraUrl = "https://d9c8-190-108-95-235.ngrok-free.app/felicam/1" // Reemplaza <IP_DE_TU_ESP32> con la IP de tu ESP32-CAM
         webView.loadUrl(cameraUrl)
     }
 }

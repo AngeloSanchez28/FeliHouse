@@ -6,9 +6,6 @@
     android:background="#F5E9DC"
     android:id="@+id/root_layout">
 
-
-
-
     <TextView
         android:id="@+id/camera_label"
         android:layout_width="wrap_content"

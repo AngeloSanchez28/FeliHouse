@@ -16,7 +16,7 @@
     <string name="exterior">Exterior</string>
     <string name="bano">Baño</string>
     <string name="cochera">Cochera</string>
-    <string name="encendido_apagado">Todo Encendido/Apagado</string>
+    <string name="encendido_apagado">Encender / Apagar Todo</string>
 
     <string name="encender_todo">Encender Todo</string>
     <string name="apagar_todo">Apagar Todo</string>
