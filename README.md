@@ -3,7 +3,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kotlin/kotlin-original.svg" alt="Kotlin" width="60" height="60"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg" alt="Android" width="60" height="60"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gradle/gradle-plain.svg" alt="Gradle" width="60" height="60"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Gradle_logo.svg" alt="Gradle" width="60" height="60"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="Arduino" width="60" height="60"/>
   <img src="https://developer.android.com/static/studio/images/studio-icon.svg" alt="Android Studio" width="60" height="60"/>
 </div>
